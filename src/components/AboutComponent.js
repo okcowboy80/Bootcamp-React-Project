@@ -19,7 +19,7 @@ function About(props) {
                 </React.Fragment>
             )
         }
-        return <div />
+        return null;
     }
 
     const partners = props.partners.map(partner => {
