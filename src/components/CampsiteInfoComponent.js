@@ -39,8 +39,8 @@ class CommentForm extends Component {
         super(props);
         
         this.state = {
-          isModalOpen: false,
-          touched: {                                                                                                                                 
+            isModalOpen: false,
+            touched: {                                                                                                                                 
             author: false
           }
         };
@@ -152,7 +152,6 @@ function RenderComments({comments, postComment, campsiteId}) {
     if(comments) {
         return(
             <div className="col-md-5 m-1">
-                <h4>Comments</h4>
                 <h4>Comments</h4>
                 <Stagger in>
                     {

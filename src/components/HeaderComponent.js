@@ -4,6 +4,7 @@ import { Nav, Navbar, NavbarBrand, NavbarToggler,
     Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+import { Transform } from 'react-animation-components'
 
 class Header extends Component {
 
@@ -84,32 +85,39 @@ class Header extends Component {
                                     <i className="fa fa-sign-in fa-lg" /> Login
                                 </Button>
                             </span>
-                        </Collapse>
+                        </Collapse> 
                     </div>
                 </Navbar>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
                     <ModalBody>
                     <Form onSubmit={this.handleLogin}>
-                            <FormGroup>
-                                <Label htmlFor="username">Username</Label>
-                                <Input type="text" id="username" name="username"
-                                    innerRef={input => this.username = input} />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="password">Password</Label>
-                                <Input type="password" id="password" name="password"
-                                    innerRef={input => this.password = input} />
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" name="remember"
-                                        innerRef={input => this.remember = input} />
-                                    Remember me
-                                </Label>
-                            </FormGroup>
-                            <Button type="submit" value="submit" color="primary" >Login</Button>
-                        </Form>
+                        <Transform exitTransform="translateX(-100px)" in>    
+                        <FormGroup>
+                            <Label htmlFor="username">Username</Label>
+                            <Input type="text" id="username" name="username"
+                                innerRef={input => this.username = input} />
+                        </FormGroup>
+                        </Transform>
+                        <Transform exitTransform="translateX(100px)" in>
+                        <FormGroup>
+                            <Label htmlFor="password">Password</Label>
+                            <Input type="password" id="password" name="password"
+                                innerRef={input => this.password = input} />
+                        </FormGroup>
+                        </Transform>
+                        <Transform exitTransform="translateX(-100px)" in>
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="checkbox" name="remember"
+                                    innerRef={input => this.remember = input} />
+                                Remember me
+                            </Label>
+                        </FormGroup>
+                        <Button type="submit" value="submit" color="primary" >Login</Button>
+                        </Transform>
+                        
+                    </Form>
                     </ModalBody>
                 </Modal>
             </React.Fragment>
